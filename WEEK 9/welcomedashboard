@@ -1,0 +1,18 @@
+<?php
+session_start();
+
+// Security check: If no session exists, boot them back to login
+if (!isset($_SESSION['store_user'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
+<!-- 3. Display Welcome page -->
+<h1>Welcome to the Chum/Lisper Store Dashboard</h1>
+
+<!-- 4. Show session username -->
+<p>Logged in as: <strong><?php echo htmlspecialchars($_SESSION['store_user']); ?></strong></p>
+
+<!-- 5. Logout link -->
+<a href="logout.php">Logout from Store</a>
